@@ -2,6 +2,7 @@ import React from 'react'
 import { motion } from 'framer-motion';
 import { lighten } from 'polished';
 import styled, { useTheme } from 'styled-components'
+import Button from 'components/Button';
 
 const Konsultasi = () => {
 
@@ -30,6 +31,18 @@ const Konsultasi = () => {
                     <li>Data pribadi anda akan terjamin kerahasiaannya</li>
                 </ul>
             </motion.h5>
+
+            <br/>
+
+            <motion.div
+                initial={{ scale: 0, originX: .25, originY: .25 }}
+                animate={{ scale: 1, originX: .25, originY: .25, display: 'block' }}
+                transition={{ delay: .8, type: 'spring' }}
+            >
+                <Button variant='neutral' color='primary' size='large'>
+                    PELAJARI LEBIH LANJUT
+                </Button>
+            </motion.div>
         </Div>
     )
 }

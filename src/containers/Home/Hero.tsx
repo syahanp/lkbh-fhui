@@ -1,3 +1,4 @@
+import Button from 'components/Button';
 import React from 'react'
 import styled, { useTheme } from 'styled-components'
 
@@ -16,6 +17,12 @@ const Hero = () => {
                         <p>
                             Nikmati konsultasi hukum yang ditangani langsung oleh pakar dan praktisi Fakultas Hukum Universitas Indonesia dengan harga yang cukup terjangkau.
                         </p>
+
+                        <br/><br/>
+
+                        <Button variant='solid' color='primary' size='large'>
+                            KONSULTASI SEKARANG
+                        </Button>
                     </div>
                     <div className="col-md-6">
                         <div className='illustration_hero'>

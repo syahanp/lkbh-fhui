@@ -6,7 +6,7 @@ export interface BtnStyledProps {
 }
 
 export interface BtnProps extends BtnStyledProps {
-    variant: 'solid' | 'outline' | 'text'
+    variant: 'solid' | 'outline' | 'neutral' | 'text'
     color: 'primary' | 'secondary' | 'danger' | 'warning' | 'neutral'
     size?: 'large' | 'medium' | 'small'
     href?: string
