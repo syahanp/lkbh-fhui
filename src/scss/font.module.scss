@@ -1,0 +1,24 @@
+@import './colors.module.scss';
+
+$primary : 'Heebo', sans-serif;
+
+$light : 300;
+$regular : 400;
+$medium : 500;
+$semi: 600;
+$bold : 700;
+$black : 800;
+$italic: italic;
+
+// webpack export
+:export {
+    primary : $primary;
+
+    light: $light;
+    regular : $regular;
+    medium : $medium;
+    semi: $semi;
+    bold : $bold;
+    black : $black;
+    italic : $italic;
+}
