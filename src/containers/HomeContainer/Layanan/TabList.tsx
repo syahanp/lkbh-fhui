@@ -33,6 +33,11 @@ const TabList = () => {
                 isActive={active === 'hki'} 
                 onClick={() => setActive('hki')} 
             />
+            <LayananTab 
+                tabFor='probono' 
+                isActive={active === 'probono'} 
+                onClick={() => setActive('probono')} 
+            />
         </Div>
     )
 }
@@ -40,5 +45,5 @@ const TabList = () => {
 export default TabList;
 
 const Div = styled.div`
-    padding-left: 2rem;
+    padding-left: 1rem;
 `

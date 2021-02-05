@@ -1,8 +1,8 @@
 import Head from 'next/head'
 import styled from 'styled-components';
-import Hero from 'containers/Home/Hero';
-import Layanan from 'containers/Home/Layanan';
-import News from 'containers/Home/News';
+import Hero from 'containers/HomeContainer/Hero';
+import Layanan from 'containers/HomeContainer/Layanan';
+import News from 'containers/HomeContainer/News';
 import Navbar from 'components/Navbar';
 
 const Home = () => {
@@ -13,8 +13,6 @@ const Home = () => {
             <Hero />
 
             <Layanan />
-
-            <News />
         </Div>
     )
 }

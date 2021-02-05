@@ -19,6 +19,7 @@ export const GlobalStyle = createGlobalStyle`
 
     a {
         text-decoration: none;
+        color: ${({theme}) => theme.pallete.color.primary};
 
         &:hover {
             text-decoration: none;
@@ -31,7 +32,7 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     h1 {
-        font-size: ${calculatePxToRem(38)};
+        font-size: ${calculatePxToRem(36)};
         line-height: 1.5;
         font-weight: ${({theme}) => theme.font.weight.medium};
         font-family: ${({theme}) => theme.font.style.primary};
@@ -99,7 +100,8 @@ export const GlobalStyle = createGlobalStyle`
         }
 
         &:focus {
-            border: ${({theme}) => `1px solid ${theme.pallete.color.primary}`} !important;
+            border: ${({theme}) => `1px solid ${theme.pallete.text.primary}`} !important;
+            box-shadow: none !important;
             box-shadow: 0;
         }
     }

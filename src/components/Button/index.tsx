@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 import styled, { useTheme } from 'styled-components';
 import { rgba } from 'polished';
 import { makeStyles } from '@material-ui/styles';
@@ -7,19 +8,36 @@ import { motion } from 'framer-motion';
 
 const Button = React.forwardRef<HTMLAnchorElement, BtnProps>(
     ({
+        element = "button",
         variant,
         color,
         size = 'medium',
         disabled = false,
         fullWidth = false,
         href,
+        popped,
         onClick,
-        children,
+        children
     }, ref
 ) => {
 
     const theme = useTheme();
     const useStyle = makeStyles({
+        root: {
+            display: 'inline-block',
+            border: 'none',
+            backgroundColor: 'transparent',
+            cursor: 'pointer',
+            borderRadius: '5px',
+            width: fullWidth ? `100%` : 'auto',
+            textAlign: "center",
+            transition: 'all .1s ease-in-out',
+            '&:hover': {
+                textDecoration: 'none',
+                color: '#fff',
+                transform: popped ? `scale(1.05)` : `scale(1)`
+            }
+        },
         solidPrimary: {
             backgroundColor: theme.pallete.color.primary,
             color: '#fff'
@@ -33,18 +51,18 @@ const Button = React.forwardRef<HTMLAnchorElement, BtnProps>(
             color: '#fff'
         },
         outlinePrimary: {
-            border: `1px solid ${theme.pallete.color.primary}`,
-            color: theme.pallete.color.primary,
-            transition: 'all .2s ease-in-out',
+            border: `1px solid ${theme.pallete.color.primary} !important`,
+            color: theme.pallete.color.primary + '!important',
+            transition: 'all .1s ease-in-out',
             '&:hover': {
-                color: '#fff',
-                backgroundColor: theme.pallete.color.primary,
+                color: '#fff !important',
+                backgroundColor: theme.pallete.color.primary + '!important',
             }
         },
         outlineSecondary: {
             border: `1px solid ${theme.pallete.color.secondary}`,
             color: theme.pallete.color.secondary,
-            transition: 'all .2s ease-in-out',
+            transition: 'all .1s ease-in-out',
             '&:hover': {
                 color: '#fff',
                 backgroundColor: theme.pallete.color.secondary,
@@ -53,7 +71,7 @@ const Button = React.forwardRef<HTMLAnchorElement, BtnProps>(
         outlineDanger: {
             border: `1px solid ${theme.pallete.color.danger}`,
             color: theme.pallete.color.danger,
-            transition: 'all .2s ease-in-out',
+            transition: 'all .1s ease-in-out',
             '&:hover': {
                 color: '#fff',
                 backgroundColor: theme.pallete.color.danger,
@@ -148,33 +166,30 @@ const Button = React.forwardRef<HTMLAnchorElement, BtnProps>(
             break;
     }
 
-    return (
-        <ButtonElement
-            ref={ref}
-            href={href}
-            onClick={onClick}
-            fullWidth={fullWidth}
-            disabled={disabled}
-            className={`${btnVariant} ${btnSize}`}
-            whileHover={{ scale: 1.1 }}
-        >
-            { children }
-        </ButtonElement>
-    )
+    const BtnProps = {
+        ref: ref,
+        className: `${btnVariant} ${btnSize} ${style.root}`
+    }
+
+    if (element === 'a') {
+        const ButtonLink = React.createElement("button", {
+            ...BtnProps,
+            href: href
+        }, children)
+
+        return (
+            <Link href={href}>
+                {ButtonLink}
+            </Link>
+        )
+    }
+
+    const Default = React.createElement("button", {
+        ...BtnProps,
+        onClick: onClick,
+    }, children)
+
+    return Default
 })
 
 export default Button;
-
-const ButtonElement = styled(motion.a)<BtnStyledProps>`
-    display: inline-block;
-    text-decoration: none;
-    cursor: pointer;
-    border-radius: 5px;
-    width: ${({fullWidth}) => fullWidth ? `100%` : 'auto'};
-    text-align: center;
-
-    &:hover {
-        text-decoration: none;
-        color: #fff;
-    }
-`

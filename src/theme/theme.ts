@@ -2,7 +2,7 @@ import { rgba } from 'polished';
 import font from 'scss/font.module.scss';
 
 const generalColor = {
-    primary: '#CC2A49',
+    primary: '#E6302E',
     secondary: '#FFB946',
     danger: '#FF2056',
     warning : '#FFB946',

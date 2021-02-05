@@ -1,30 +1,33 @@
 import Button from 'components/Button';
-import { rgba } from 'polished';
+import Link from 'next/link';
 import React from 'react';
 import styled from 'styled-components';
 
 const DesktopNav = () => {
     return (
-        <Div className='container'>
-            <div className="navbar_logo">
-                <img src="img/lkbh-logo.png" alt="logo"/>
-            </div>
-            <div className="navbar_menu">
-                <ul>
-                    <li>Home</li>
-                    <li>Tentang Kami</li>
-                    <li>Layanan</li>
-                </ul>
-            </div>
-            <div className="navbar_login">
-                <ul>
-                    <li>Masuk</li>
-                    <li>
-                        <Button color='primary' variant='outline'>
-                            Daftar
-                        </Button>
-                    </li>
-                </ul>
+        <Div>
+            <div className='container wrapper'>
+                <div className="navbar_logo">
+                    <img src="img/lkbh-logo.png" alt="logo"/>
+                </div>
+                <div className="navbar_menu">
+                    <ul>
+                        <li><Link href='/'>Home</Link></li>
+                        <li><Link href='/about'>Tentang Kami</Link></li>
+                        {/* <li><Link href='/layanan'>Layanan</Link></li> */}
+                    </ul>
+                </div>
+                <div className="navbar_login">
+                    <ul>
+                        <li>Kontak Kami</li>
+                        {/* <li><Link href='/login'>Masuk</Link></li>
+                        <li>
+                            <Button element='a' color='primary' variant='outline' href='/register'>
+                                Daftar
+                            </Button>
+                        </li> */}
+                    </ul>
+                </div>
             </div>
         </Div>
     )
@@ -34,62 +37,74 @@ export default DesktopNav;
 
 const Div = styled.div`
     padding: 1.5rem 0rem;
-    display: flex;
-    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
 
-    ul {
-        list-style-type: none;
-        margin: 0 !important;
-        padding: 0 !important;
+    .wrapper {
+        display: flex;
+        align-items: center;
 
-        li {
-            display: inline-block;
-            font-size: 15px;
-            border-radius: 3px;
-            color: ${({theme}) => theme.pallete.text.primary};
-            padding: 1.25rem;
-            margin: 0px 2px;
-            cursor: pointer;
-            text-transform: uppercase;
-            transition: all .15s ease-in-out;
+        ul {
+            list-style-type: none;
+            margin: 0 !important;
+            padding: 0 !important;
 
-            &:hover {
-                /* background-color: ${({theme}) => theme.pallete.background.grey}; */
-                color: ${({theme}) => theme.pallete.color.primary} !important;
+            li {
+                display: inline-block;
+                font-size: 15px;
+                border-radius: 3px;
+                padding: 1.25rem;
+                margin: 0px 2px;
+                cursor: pointer;
+                text-transform: uppercase;
+
+                a {
+                    color: #fff;
+                    transition: all .15s ease-in-out;
+                    
+                    &:hover {
+                        color: ${({theme}) => theme.pallete.color.secondary};
+                    }
+                }
+
+            }
+        }
+
+        .navbar_logo {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            
+            img {
+                margin-right: auto;
+                width: auto;
+                height: auto;
+                max-height: 65px;
+            }
+        }
+
+        .navbar_menu {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+        .navbar_login {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+
+            ul  {
+                margin-left: auto !important;
+                color: #fff;
+
+                li:last-child {
+                    padding: 0rem .5rem;
+                }
             }
         }
     }
 
-    .navbar_logo {
-        flex: 1;
-        display: flex;
-        justify-content: center;
-        
-        img {
-            margin-right: auto;
-            width: auto;
-            height: auto;
-            max-height: 65px;
-        }
-    }
-
-    .navbar_menu {
-        flex: 1;
-        display: flex;
-        justify-content: center;
-    }
-
-    .navbar_login {
-        flex: 1;
-        display: flex;
-        justify-content: center;
-
-        ul  {
-            margin-left: auto !important;
-
-            li:last-child {
-                padding: 0rem .5rem;
-            }
-        }
-    }
 `

@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import NewsContainer from './NewsContainer';
 
 const News = () => {
+
     return (
         <Div>
             <div className="section-title">

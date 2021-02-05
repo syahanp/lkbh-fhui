@@ -7,7 +7,7 @@ interface styledProps {
 }
 
 interface Props extends styledProps {
-    tabFor: 'konsultasi' | 'pendampingan' | 'lo' | 'mediasi' | 'hki'
+    tabFor: 'konsultasi' | 'pendampingan' | 'lo' | 'mediasi' | 'hki' | 'probono'
     onClick: () => void
 }   
 
@@ -29,6 +29,9 @@ const LayananTab: React.FC<Props> = ({ isActive, tabFor, onClick }) => {
 
             case 'hki':
                 return <img src='/img/layanan-icon/hki.svg' />
+            
+            case 'probono':
+                return <img src='/img/layanan-icon/probono.svg' />
         
             default:
                 break;
@@ -44,13 +47,16 @@ const LayananTab: React.FC<Props> = ({ isActive, tabFor, onClick }) => {
                 return <h4>Pendampingan Hukum</h4>
 
             case 'lo':
-                return <h4>Pembuatan Legal Opnion</h4>
+                return <h4>Pembuatan Legal Opinion</h4>
 
             case 'mediasi':
                 return <h4>Layanan Mediasi</h4>
 
             case 'hki':
                 return <h4>Pendaftaran HKI</h4>
+            
+            case 'probono':
+                return <h4>Layanan <i>Pro Bono</i></h4>
         
             default:
                 break;

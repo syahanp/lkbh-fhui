@@ -1,11 +1,12 @@
 import React, { useContext } from 'react'
 import styled from 'styled-components';
-import { LayananCtx } from '../'
+import { LayananCtx } from '..'
 import Konsultasi from './Konsultasi';
 import Pendampingan from './Pendampingan';
 import LegalOpinion from './LegalOpnion';
 import Mediasi from './Mediasi';
 import Hki from './Hki';
+import Probono from './Probono';
 
 const Content = () => {
     const { active } = useContext(LayananCtx);
@@ -21,6 +22,8 @@ const Content = () => {
             return <Mediasi />
         case 'hki':
             return <Hki />
+        case 'probono':
+            return <Probono />
     
         default:
             break;

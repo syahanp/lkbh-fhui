@@ -18,10 +18,10 @@ const Layanan = () => {
                 </div>
                 <div className="container">
                     <div className="row">
-                        <div className="col-md-6">
+                        <div className="col-md-7">
                             <Content />
                         </div>
-                        <div className="col-md-6">
+                        <div className="col-md-5">
                             <TabList />
                         </div>
                     </div>
@@ -34,7 +34,7 @@ const Layanan = () => {
 export default Layanan
 
 const Div = styled.div`
-    padding: 4rem 0rem;
+    padding: 6rem 0rem;
     background-color: ${({theme}) => theme.pallete.background.grey};
 
     .section-title {
